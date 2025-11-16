@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Benefits from './components/Benefits'
@@ -9,38 +9,21 @@ import './index.css'
 
 function App() {
   const [contactOpen, setContactOpen] = useState(false)
-  const bgImages = useMemo(
-    () => [
-      // Rooftop
-      "url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2069&auto=format&fit=crop')",
-      // Solar field (utility scale)
-      "url('https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=2070&auto=format&fit=crop')",
-      // Desert array
-      "url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=2069&auto=format&fit=crop')",
-      // Over water / floating (ponds/rivers)
-      "url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=2070&auto=format&fit=crop')",
-    ],
-    []
-  )
-  const [bgIndex, setBgIndex] = useState(0)
 
-  useEffect(() => {
-    const id = setInterval(() => {
-      setBgIndex((i) => (i + 1) % bgImages.length)
-    }, 7000)
-    return () => clearInterval(id)
-  }, [bgImages.length])
+  // Static background image (solar panels) visible across the whole page
+  const staticBg = "url('https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=2070&auto=format&fit=crop')"
 
   return (
     <div className="min-h-screen w-full">
-      {/* Rotating background with solar installation photos */}
+      {/* Static background with solar installation photo */}
       <div
-        className="fixed inset-0 -z-10 bg-cover bg-center transition-[background-image] duration-700 ease-in-out"
+        className="fixed inset-0 -z-10 bg-cover bg-center"
         style={{
-          backgroundImage: `${bgImages[bgIndex]}`,
+          backgroundImage: staticBg,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-950/80 via-blue-900/60 to-blue-950/80" />
+        {/* Subtle overlay to maintain readability while keeping image clear */}
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-950/50 via-blue-900/30 to-blue-950/50" />
       </div>
 
       <Header onOpenContact={() => setContactOpen(true)} />
