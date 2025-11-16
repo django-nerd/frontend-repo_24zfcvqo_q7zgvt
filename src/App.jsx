@@ -1,26 +1,36 @@
-import { useState } from 'react'
+import React from 'react'
+import Header from './components/Header'
+import Hero from './components/Hero'
+import Benefits from './components/Benefits'
+import Services from './components/Services'
+import Contact from './components/Contact'
+import './index.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <div className="min-h-screen w-full">
+      {/* Background with solar installation photos */}
+      <div
+        className="fixed inset-0 -z-10 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=2070&auto=format&fit=crop'), url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2069&auto=format&fit=crop')",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
       </div>
+
+      <Header />
+      <main>
+        <Hero />
+        <Benefits />
+        <Services />
+        <Contact />
+        <footer className="py-10 text-center text-white/80 bg-black/50">
+          <p>© {new Date().getFullYear()} Royal Groups • Solar Installation, Operations & Maintenance • India</p>
+          <p className="mt-1 text-sm">GST & MSME compliant • PAN‑India Support • MNRE aligned</p>
+        </footer>
+      </main>
     </div>
   )
 }
