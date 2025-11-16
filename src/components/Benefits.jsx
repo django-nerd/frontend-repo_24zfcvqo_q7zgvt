@@ -30,15 +30,18 @@ const points = [
 const env = [
   {
     title: 'CO₂ Emissions Reduced',
-    desc: 'Each kWh of solar offsets ~0.8 kg CO₂ in India, directly cutting your carbon footprint.'
+    desc: 'Each kWh of solar offsets ~0.8 kg CO₂ in India, directly cutting your carbon footprint.',
+    img: 'https://images.unsplash.com/photo-1459478309853-2c33a60058e7?q=80&w=2070&auto=format&fit=crop'
   },
   {
     title: 'Fossil Fuel Independence',
-    desc: 'Clean, renewable energy reduces reliance on coal and diesel, improving air quality.'
+    desc: 'Clean, renewable energy reduces reliance on coal and diesel, improving air quality.',
+    img: 'https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=2070&auto=format&fit=crop'
   },
   {
     title: 'Sustainable Future',
-    desc: 'Solar power supports India’s climate goals and promotes responsible energy consumption.'
+    desc: 'Solar power supports India’s climate goals and promotes responsible energy consumption.',
+    img: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=2070&auto=format&fit=crop'
   }
 ]
 
@@ -61,9 +64,14 @@ const Benefits = () => {
         <h3 id="environment" className="mt-16 text-2xl font-bold text-gray-900 text-center">Environmental Contribution</h3>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
           {env.map((e) => (
-            <div key={e.title} className="p-6 rounded-xl bg-blue-50 border border-blue-100">
-              <h4 className="text-lg font-semibold text-blue-900">{e.title}</h4>
-              <p className="mt-2 text-blue-800">{e.desc}</p>
+            <div key={e.title} className="rounded-xl bg-blue-50 border border-blue-100 shadow overflow-hidden flex flex-col">
+              <div className="p-6">
+                <h4 className="text-lg font-semibold text-blue-900">{e.title}</h4>
+                <p className="mt-2 text-blue-800">{e.desc}</p>
+              </div>
+              <div className="mt-auto">
+                <img src={e.img} alt={e.title} className="w-full h-40 object-cover" />
+              </div>
             </div>
           ))}
         </div>
