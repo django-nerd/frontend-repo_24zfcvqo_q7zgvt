@@ -44,7 +44,7 @@ const env = [
 
 const Benefits = () => {
   return (
-    <section id="benefits" className="relative py-20 bg-white/90">
+    <section id="benefits" className="relative py-20 bg-white/95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 text-center">Why Choose Solar with Royal Groups</h2>
         <p className="mt-4 text-gray-600 text-center max-w-3xl mx-auto">From design to commissioning and long‑term O&M, we deliver bankable systems optimised for Indian weather and tariffs.</p>
@@ -58,12 +58,12 @@ const Benefits = () => {
           ))}
         </div>
 
-        <h3 className="mt-16 text-2xl font-bold text-gray-900 text-center">Environmental Contribution</h3>
+        <h3 id="environment" className="mt-16 text-2xl font-bold text-gray-900 text-center">Environmental Contribution</h3>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
           {env.map((e) => (
-            <div key={e.title} className="p-6 rounded-xl bg-emerald-50 border border-emerald-100">
-              <h4 className="text-lg font-semibold text-emerald-900">{e.title}</h4>
-              <p className="mt-2 text-emerald-800">{e.desc}</p>
+            <div key={e.title} className="p-6 rounded-xl bg-blue-50 border border-blue-100">
+              <h4 className="text-lg font-semibold text-blue-900">{e.title}</h4>
+              <p className="mt-2 text-blue-800">{e.desc}</p>
             </div>
           ))}
         </div>

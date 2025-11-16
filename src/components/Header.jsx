@@ -3,7 +3,7 @@ import React from 'react'
 function Logo() {
   return (
     <div className="flex items-center space-x-2">
-      <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-yellow-400">
+      <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-yellow-300">
         <circle cx="32" cy="32" r="10" fill="currentColor"/>
         <g stroke="currentColor" strokeWidth="3" strokeLinecap="round">
           <line x1="32" y1="4" x2="32" y2="14"/>
@@ -21,12 +21,23 @@ function Logo() {
   )
 }
 
-const Header = () => {
+const Header = ({ onOpenContact }) => {
+  const scrollTo = (id) => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="h-16 flex items-center">
+        <div className="h-16 flex items-center justify-between">
           <Logo />
+          <nav className="hidden md:flex items-center gap-6 text-sm font-semibold">
+            <button onClick={() => scrollTo('benefits')} className="text-white/90 hover:text-white">Why Royal</button>
+            <button onClick={() => scrollTo('environment')} className="text-white/90 hover:text-white">Environment</button>
+            <button onClick={() => scrollTo('services')} className="text-white/90 hover:text-white">What We Do</button>
+            <button onClick={onOpenContact} className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white shadow">Contact Us</button>
+          </nav>
         </div>
       </div>
     </header>
